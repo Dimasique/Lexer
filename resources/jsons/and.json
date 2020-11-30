@@ -1,0 +1,10 @@
+{ 
+  "type" : "logical",
+  "priority": 2,
+  "init_states": ["q0"],
+  "term_states": ["q2"],
+  "go": {
+    "q0": { "&": ["q1"] },
+    "q1" : {"&" : ["q2"]}
+  }
+}

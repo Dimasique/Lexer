@@ -1,0 +1,11 @@
+{
+  "type" : "type",
+  "priority": 5,
+  "init_states": ["q0"],
+  "term_states": ["q3"],
+  "go": {
+    "q0": { "i": ["q1"] },
+    "q1": { "n": ["q2"] },
+    "q2": { "t": ["q3"] }
+  }
+}

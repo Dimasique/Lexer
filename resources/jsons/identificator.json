@@ -1,0 +1,10 @@
+{
+  "type" : "id",
+  "priority": 0,
+  "init_states": ["q0"],
+  "term_states": ["q1"],
+  "go": {
+    "q0": { "any_letter": ["q1"] },
+    "q1" : {"any_letter" : ["q1"], "any_digit" : ["q1"]}
+  }
+}

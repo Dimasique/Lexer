@@ -1,0 +1,9 @@
+{ 
+  "type" : "operator",
+  "priority": 1,
+  "init_states": ["q0"],
+  "term_states": ["q1"],
+  "go": {
+    "q0": { "/": ["q1"] }
+  }
+}

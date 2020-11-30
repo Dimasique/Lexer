@@ -1,0 +1,17 @@
+{
+  "type" : "keyword",
+  "priority": 10,
+  "init_states": ["q0"],
+  "term_states": ["q3"],
+  "go": {
+  	"q0" : {
+  		"f" : ["q1"]
+  	},
+  	"q1" : {
+  		"o" : ["q2"]
+  	},
+  	"q2" : {
+  		"r" : ["q3"]
+  	}
+  }
+}
