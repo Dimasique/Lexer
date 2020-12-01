@@ -6,7 +6,7 @@
 
 FSM::FSM(const string& path)
 {
-    init();
+
     std::ifstream in(path);
     json j;
 
@@ -28,19 +28,16 @@ FSM::FSM(const string& path)
 
         for(const auto& in_el : el.value().items()) {
 
-            if (in_el.key() == "any_letter") {
-                add_any_letter(state, in_el.value()[0]);
-                continue;
-            }
-            if (in_el.key() == "any_digit") {
-                add_any_digit(state, in_el.value()[0]);
-                continue;
-            }
-
-            char ch = in_el.key()[0];
-
             for(const auto& next_state : in_el.value()) {
-                this->go[make_pair(state, ch)] = next_state;
+
+                if (in_el.key() == "any_letter") {
+                    add_any_letter(state, next_state);
+                }
+                else if (in_el.key() == "any_digit") {
+                    add_any_digit(state, next_state);
+                }
+                else
+                    this->go[make_pair(state, in_el.key()[0])] = next_state;
             }
         }
     }
