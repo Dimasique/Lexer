@@ -26,7 +26,7 @@ void Lexer::load(const string& path)
 vector<Lexeme> Lexer::find_lexemes(int skip)
 {
     vector<Lexeme> result;
-    int num_msf = (int)fsms.size();
+    int num_fsm = (int)fsms.size();
     int prev = 0;
 
     for (auto& fsm : fsms) {
@@ -43,12 +43,12 @@ vector<Lexeme> Lexer::find_lexemes(int skip)
             bool ok = fsms[j].next(text[i], i);
             if (!ok) {
                 is_valid[j] = false;
-                --num_msf;
+                --num_fsm;
             }
         }
 
 
-        if (num_msf == 0) {
+        if (num_fsm == 0) {
 
             int max_prior = 0;
             int max_length = 0;
@@ -79,8 +79,8 @@ vector<Lexeme> Lexer::find_lexemes(int skip)
                 fsm.init();
             }
 
-            num_msf = fsms.size();
-            for(int j = 0; j < num_msf; ++j) {
+            num_fsm = fsms.size();
+            for(int j = 0; j < num_fsm; ++j) {
                 is_valid[j] = true;
             }
 
