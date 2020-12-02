@@ -1,4 +1,4 @@
-int a = 123;
+false int a = -123;
 double b = 2.2e5;
 boolean exit = false;
 

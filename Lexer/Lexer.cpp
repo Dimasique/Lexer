@@ -27,7 +27,7 @@ vector<Lexeme> Lexer::find_lexemes(int skip)
 {
     vector<Lexeme> result;
     int num_fsm = (int)fsms.size();
-    int prev = 0;
+    int prev = skip;
 
     for (auto& fsm : fsms) {
         fsm.init();
@@ -50,7 +50,7 @@ vector<Lexeme> Lexer::find_lexemes(int skip)
 
         if (num_fsm == 0) {
 
-            int max_prior = 0;
+            int max_prior = -1;
             int max_length = 0;
             string mem_type;
 
@@ -75,6 +75,7 @@ vector<Lexeme> Lexer::find_lexemes(int skip)
                 }
             }
 
+            assert(max_prior >= 0);
             for (auto& fsm : fsms) {
                 fsm.init();
             }

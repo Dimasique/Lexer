@@ -4,10 +4,8 @@
   "init_states": ["q0"],
   "term_states": ["q3", "q5", "q7"],
   "go": {
-    "q0": { "+": ["q1"], "-": ["q2"], "any_digit" : ["q3"]},
-    "q1" : {"any_digit" : ["q3"]},
-    "q2" : {"any_digit" : ["q3"]},
-    "q3" : {"any_digit" : ["q3"], "." : ["q4"]},
+    "q0": {"any_digit" : ["q3"]},
+    "q3" : {"any_digit" : ["q3"], "." : ["q4"], "e" :  ["q6"]},
     "q4" : {"any_digit" : ["q5"]},
     "q5" : {"any_digit" : ["q5"], "e" : ["q6"]},
     "q6" : {"any_digit" : ["q7"]},
