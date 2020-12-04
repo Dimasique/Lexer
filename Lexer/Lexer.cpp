@@ -57,21 +57,17 @@ vector<Lexeme> Lexer::find_lexemes(int skip)
 
             for (auto& fsm : fsms) {
                 int prior = fsm.get_priority();
+                int len = fsm.get_found();
+                string type = fsm.get_type();
 
-                if (prior < max_prior) {
-                    continue;
+                if (len > max_length) {
+                    max_length = len;
+                    max_prior = prior;
+                    mem_type = type;
                 }
-
-                for (auto len : fsm.get_found()) {
-                    if (prior > max_prior) {
-                        max_prior = prior;
-                        max_length = len;
-                        mem_type = fsm.get_type();
-                    }
-                    else if (prior == max_prior && len > max_length) {
-                        max_length = len;
-                        mem_type = fsm.get_type();
-                    }
+                else if (len == max_length && prior > max_prior) {
+                    max_prior = prior;
+                    mem_type = type;
                 }
             }
 

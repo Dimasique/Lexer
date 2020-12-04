@@ -1,6 +1,6 @@
 int a = -123;
 double b = 2.2e5;
-boolean exit = false;
+bool exit = false;
 
 while (b > a && !exit) {
   b = b - a

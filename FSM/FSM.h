@@ -37,7 +37,7 @@ public:
 
     int get_priority() const;
     string get_type() const;
-    vector<int> get_found() const;
+    int get_found() const;
 
 private:
 
@@ -49,7 +49,7 @@ private:
     unordered_set<string> term_states;
 
     map<pair<string, char>, string> go;
-    vector<int> found;
+    int found;
 
     void add_any_letter(const string& state1, const string& state2);
     void add_any_digit(const string& state1, const string& state2);

@@ -4,7 +4,7 @@
 
 #include "FSM.h"
 
-FSM::FSM(const string& path)
+FSM::FSM(const string& path) : found(-1)
 {
 
     std::ifstream in(path);
@@ -60,7 +60,7 @@ bool FSM::next(char ch, int idx)
         next_states.insert(next_state);
 
         if (term_states.count(next_state)) {
-            found.push_back(idx);
+            found = idx;
         }
     }
 
@@ -70,7 +70,7 @@ bool FSM::next(char ch, int idx)
 
 void FSM::init()
 {
-    found.clear();
+    found = -1;
     cur_states = init_states;
 }
 
@@ -79,7 +79,7 @@ int FSM::get_priority() const
     return priority;
 }
 
-vector<int> FSM::get_found() const
+int FSM::get_found() const
 {
     return found;
 }
